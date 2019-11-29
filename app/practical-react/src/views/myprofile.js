@@ -27,6 +27,7 @@ export default class MyProfile extends Component{
 
   }
 
+
   onChangeName(e){
     this.setState({
       name: e.target.value
@@ -69,26 +70,44 @@ export default class MyProfile extends Component{
     }
 
     axios.post("http://localhost:3000/user/add", profile)
-      .then(res=>console.log(res.data));
-    console.log(profile);
+      .then(response=>console.log(response.data));
+
     window.location = '/';
   }
 
   render(){
     return(
       <form onSubmit={this.onSubmit}>
+
+        <div className="form-group">
+          <label>Username</label>
+          <input type="text" className="form-control" id="email" value={this.state.username}  onChange= {this.onChangeUserName}/>
+        </div>
+
         <div className="form-group">
           <label>Name</label>
           <input type="text" className="form-control" id="email" value={this.state.name}  onChange= {this.onChangeName}/>
         </div>
+
         <div className="form-group">
           <label>Age</label>
           <input type="text" className="form-control"  id="age" value={this.state.age}  onChange= {this.onChangeAge}/>
-        <div className="form-group">
         </div>
+
+        <div className="form-group">
           <label>Bio</label>
           <input type="text" className="form-control" id="bio" value={this.state.bio}  onChange= {this.onChangeBio}/>
         </div>
+
+        <div className="form-group">
+          <label>Gender</label>
+          <br/>
+          <select value = {this.state.sex} onChange = {this.onChangeSex}>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );

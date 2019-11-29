@@ -15,7 +15,7 @@ export default class PickLocation extends Component{
           <Link to = "/myprofile" className="navbar-link">My Profile</Link>
         </li>
         <li className="nav-item active">
-          <Link to = "/view" className="navbar-link">View</Link>
+          <Link to = "/view" className="navbar-link">View Profiles</Link>
         </li>
 
       </ul>

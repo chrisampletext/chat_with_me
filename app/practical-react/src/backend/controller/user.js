@@ -6,7 +6,6 @@ User.find()
   .then(user => res.json(user))
   .catch(err => res.status(400).json("error: "+ err));
 
-  //res.render
 });
 
 router.route('/add').post((req,res) => {
@@ -21,7 +20,6 @@ router.route('/add').post((req,res) => {
   newUser.save()
   .then(()=> res.json('added'))
   .catch(err => res.status(400).json("error: "+ err));
-
 
 });
 
