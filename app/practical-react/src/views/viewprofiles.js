@@ -16,7 +16,7 @@ const profileStyle = {
 const Profile = ({user})=> (
 
   <div className="col-sm" style={profileStyle}>
-  {user.username}
+  <Link to={'/chat/' + user._id}>{user.username}</Link>
   <br/>
   {user.name}
   <br/>
@@ -31,31 +31,26 @@ const Profile = ({user})=> (
 );
 
 
-
 export default class ViewProfiles extends Component{
   constructor(props){
     super(props);
-
-
-    //this.userList = this.userList.bind(this);
 
     this.state = {users:[] };
 
   }
 
 componentDidMount(){
+
     axios.get("http://localhost:3000/user")
     .then(response=>this.setState({users : response.data}))
-
 }
 
 userList(){
+
   return this.state.users.map(currentuser=>{
     return <Profile user={currentuser}/>;
   })
 }
-
-
 
   render(){
     return(

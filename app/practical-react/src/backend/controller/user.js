@@ -8,6 +8,14 @@ User.find()
 
 });
 
+router.route('/:id').get((req,res)=>{
+User.findById(req.params.id)
+  .then(user => res.json(user))
+  .catch(err => res.status(400).json("error: "+ err));
+
+});
+
+
 router.route('/add').post((req,res) => {
   var username = req.body.username;
   var name = req.body.name;

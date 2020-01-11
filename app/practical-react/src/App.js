@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./views/navbar";
 import MyProfile from "./views/myprofile";
 import ViewProfiles from "./views/viewprofiles"
+import Chat from "./views/chat"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar/>
       <Route path ="/myprofile" component = {MyProfile}/>
       <Route path ="/view" component = {ViewProfiles}/>
+      <Route path ="/chat/:id" component = {Chat}/>
     </Router>
   );
 }
