@@ -2,17 +2,13 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-
-
 const profileStyle = {
   width: '50px',
   height: '125px',
   color: 'red',
   border: '5px solid green'
-
 };
 
-//add onlcick
 const Profile = ({user})=> (
 
   <div className="col-sm" style={profileStyle}>
@@ -25,28 +21,22 @@ const Profile = ({user})=> (
   {user.bio}
   <br/>
   {user.gender}
-
   </div>
 
 );
 
-
 export default class ViewProfiles extends Component{
   constructor(props){
     super(props);
-
     this.state = {users:[] };
-
   }
 
 componentDidMount(){
-
     axios.get("http://localhost:3000/user")
     .then(response=>this.setState({users : response.data}))
 }
 
 userList(){
-
   return this.state.users.map(currentuser=>{
     return <Profile user={currentuser}/>;
   })

@@ -1,8 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-//import PickLocation from "./views/picklocation";
 import Navbar from "./views/navbar";
 import MyProfile from "./views/myprofile";
 import ViewProfiles from "./views/viewprofiles"

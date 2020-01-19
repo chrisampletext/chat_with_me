@@ -10,14 +10,11 @@ DateLocation.find()
 router.route('/add').post((req,res) => {
   var address = req.body.address;
   var venueName = req.body.venueName;
-
-
   var newLocation = new DateLocation({address, venueName});
 
   newLocation.save()
   .then(()=> res.json('added'))
   .catch(err => res.status(400).json("error: "+ err));
-
 
 });
 

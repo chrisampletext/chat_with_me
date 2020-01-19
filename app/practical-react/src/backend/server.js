@@ -8,11 +8,6 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var http = require('http');
 
-
-
-
-
-
 app.use (cors());
 app.use (express.json());
 
@@ -23,16 +18,11 @@ mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true}
   var connection = mongoose.connection;
   connection.once('open', ()=>{console.log("Opened mongodb")})
 
-
-
-//routes
 var userRouter = require('./controller/user');
 app.use ('/user', userRouter);
 
 var dateLocationRouter = require('./controller/dateLocation');
 app.use('/dateLocation',dateLocationRouter);
-
-
 
 server.listen(3000);
 
@@ -41,9 +31,6 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', (socket)=>{
-
-  console.log("new connection");
-
   socket.on('chat message', function(data){
   console.log('message: ' + data.text);
     io.sockets.emit('new message', {text: data.text, name: data.name});
@@ -53,6 +40,4 @@ io.on('connection', (socket)=>{
       io.emit('user disconnected');
   console.log("disconnection");
   });
-
-
 });

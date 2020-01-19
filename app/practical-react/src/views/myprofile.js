@@ -4,8 +4,6 @@ import axios from 'axios';
 
 export default class MyProfile extends Component{
 
-
-
   constructor(props){
     super(props);
 
@@ -24,9 +22,7 @@ export default class MyProfile extends Component{
       bio:"",
     }
 
-
   }
-
 
   onChangeName(e){
     this.setState({
@@ -52,7 +48,6 @@ export default class MyProfile extends Component{
     });
   }
 
-
   onChangeBio(e){
     this.setState({
       bio: e.target.value
@@ -71,14 +66,13 @@ export default class MyProfile extends Component{
 
     axios.post("http://localhost:3000/user/add", profile)
       .then(response=>console.log(response.data));
-
     window.location = '/';
+
   }
 
   render(){
     return(
       <form onSubmit={this.onSubmit}>
-
         <div className="form-group">
           <label>Username</label>
           <input type="text" className="form-control" id="email" value={this.state.username}  onChange= {this.onChangeUserName}/>

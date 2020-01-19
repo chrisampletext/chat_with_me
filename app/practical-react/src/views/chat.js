@@ -5,8 +5,6 @@ import io from 'socket.io-client';
 
 const ENDPOINT = "http://localhost:3000";
 
-
-
 export default class Chat extends Component{
   constructor(props){
     super(props);
@@ -27,15 +25,12 @@ export default class Chat extends Component{
   }
 
   onChangeMyName(e){
-
     this.setState({
     myname: e.target.value
     });
-    
   }
 
 handleClick(e) {
-
       e.preventDefault();
       document.getElementById('name').value = this.state.user.username;
       this.state.myname = this.state.user.username;
@@ -60,15 +55,12 @@ componentDidMount(){
       });
     });
 
-
 }
-
-
-
 
 onSubmit(e){
   e.preventDefault();
   var socket = io.connect(ENDPOINT);
+
   const data = {
     text : this.state.text,
     name : this.state.myname
@@ -76,12 +68,9 @@ onSubmit(e){
 
   socket.emit('chat message', data);
 
-
 }
 
-
   render(){
-
 
     return(
 
@@ -101,11 +90,9 @@ onSubmit(e){
           <button type="submit" className="btn btn-primary">Submit</button>
 
           <div id = "chat">
-
           </div>
         </div>
       </form>
-
 
     );
   }
